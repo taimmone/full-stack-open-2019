@@ -1,0 +1,19 @@
+note over selain:
+Käyttäjä kirjoittaa muistiinpanon
+ja painaa "Talleta"-painiketta
+end note
+
+note over selain:
+Tapahtumankäsittelijä luo
+uuden muistiinpanon ja lisää
+sen muistiinpanojen listalle
+end note
+
+note over selain:
+JS-koodi piirtää uudelleen listan
+muistiinpanoista ja lähettää luodun
+muistiinpanon palvelimelle
+end note
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa\n[{ content: "muistiinpano", date: "2019-01-01" }]
+palvelin->selain: HTTP 201 Created
