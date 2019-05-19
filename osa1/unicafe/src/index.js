@@ -7,10 +7,18 @@ const Button = ({ handleClick, text }) => (
     </button>
 )
 
+const Statistic = ({ text, value }) => {
+    return (
+        <tr>
+            <td>{text}</td><td>{value}</td>
+        </tr>
+    )
+}
+
 const Statistics = ({ good, neutral, bad }) => {
     const total = good + neutral + bad
 
-    if (total == 0) {
+    if (total === 0) {
         return (
             <div>
                 Ei yhtään palautetta annettu
@@ -19,17 +27,19 @@ const Statistics = ({ good, neutral, bad }) => {
     }
 
     const avg = (good - bad) / total
-    const positive = good / total * 100
+    const positive = good / total * 100 + ' %'
 
     return (
-        <div>
-            <p>hyvä {good}</p>
-            <p>neutraali {neutral}</p>
-            <p>huono {bad}</p>
-            <p>yhteensä {total}</p>
-            <p>keskiarvo {avg}</p>
-            <p>positiivisia {positive}%</p>
-        </div>
+        <table>
+            <tbody>
+                <Statistic text='hyvä' value={good} />
+                <Statistic text='neutraali' value={neutral} />
+                <Statistic text='huono' value={bad} />
+                <Statistic text='yhteensä' value={total} />
+                <Statistic text='keskiarvo' value={avg} />
+                <Statistic text='positiivisia' value={positive} />
+            </tbody>
+        </table>
     )
 }
 
