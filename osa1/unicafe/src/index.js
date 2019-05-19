@@ -26,8 +26,8 @@ const Statistics = ({ good, neutral, bad }) => {
         )
     }
 
-    const avg = (good - bad) / total
-    const positive = good / total * 100 + ' %'
+    const average = (good - bad) / total
+    const percentGood = good / total * 100 + ' %'
 
     return (
         <table>
@@ -36,8 +36,8 @@ const Statistics = ({ good, neutral, bad }) => {
                 <Statistic text='neutraali' value={neutral} />
                 <Statistic text='huono' value={bad} />
                 <Statistic text='yhteensä' value={total} />
-                <Statistic text='keskiarvo' value={avg} />
-                <Statistic text='positiivisia' value={positive} />
+                <Statistic text='keskiarvo' value={average} />
+                <Statistic text='positiivisia' value={percentGood} />
             </tbody>
         </table>
     )
